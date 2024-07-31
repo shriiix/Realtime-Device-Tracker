@@ -1,22 +1,34 @@
 const express = require('express');
+const socketio = require("socket.io")
+const http = require('http')
+const path = require("path")
+
 const app = express();
-
-
-//socketio boilerplate
-const http = require("http");
-const socketio = require("socket.io");
 const server = http.createServer(app)
-const io = socketio(server);
+const io = socketio(server)
 
-app.set("View engine","ejs");
-app.set(express.static(path.join(__dirname,"public")));
+app.set("view engine", "ejs")
+app.use(express.static(path.join(__dirname, "public")))
 
 
+// io.on("connection", (socket) => {
+//     socket.on("send-location", (data)=> {
+//         io.emit("recieve-location", {id: socket.id, ...data})
+//     })
+//     socket.on("disconnection", ()=>{
+//         io.emit("user-disconnected", socket.id)
+//     })
+//     console.log("Socket connected")
+// })
 
-app.get("/",function (req,res){
-    res.send("hey");
-
+io.on("connection",function(socket){
+    console.log("connected");
 })
 
+app.get('/', (req, res) => {
+    res.render("index")
+})
 
-server.listen(3000,()=>console.log(`Server runnig at : 9000`));
+server.listen(9000, () => {
+    console.log("Server is running");
+})
