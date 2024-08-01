@@ -1,3 +1,4 @@
+node_modules
 node_modules/.bin/ejs
 node_modules/.bin/ejs.cmd
 node_modules/.bin/ejs.ps1
