@@ -1,7 +1,11 @@
 A real-time device tracker allows you to monitor the location of devices.
+
 Sending the collected data to a server. Processing and storing the data on the server.
+
 Used leaflet library for interactive maps.
+
 Displaying the location data on a map in real-time on a client interface.
+
 Used socket.io to track the device with marker created using react library. 
 
 image :- 1
